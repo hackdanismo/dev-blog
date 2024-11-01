@@ -7,6 +7,8 @@
 + [Functions](#functions)
   + [Arguments](#arguments)
 + [Database Connection](#database-connection)
++ [Object Oriented Programming](#object-oriented-programming)
+  + [Class](#class)
 
 ## Hello World
 A simple `PHP` script may look like the following example (below). This is written in a file named `hello.php` and will print `Hello World` onto a webpage. The closing `?>` at the end of the script is optional if the code only contains `PHP` code.
@@ -115,5 +117,94 @@ A connection to a database, such as `MySQL`, can be made using `PDO (PHP Data Ob
     // Display the exact error during development, better to remove this and log this in production
     echo "Connection failed: " . $e->getMessage();
   }
+?>
+```
+
+## Object Oriented Programming
+`Object-Oriented Programming (OOP)` has been available for use in `PHP` since `PHP5`. The two main features of `OOP` are: `Classes` and `Objects`.
+
++ `PHP` code is faster and easier to execute.
++ A clear structure is provided for programs.
++ It helps to keep the code `DRY (Don't Repeat Yourself)` making the code easier to maintain, modify and debug.
++ Code is fully reusable to build applications that require less code and reduced development times.
+
+When thinking about `Classes` and `Objects`, an example of a `Class` would be **"Fruit"**. An `Object` is an instance of a `Class`. So `Objects` of **"Fruit"** maybe: **"Apple"**, **"Pear"** and **"Banana"**.
+
+A `Class` is a template for an `Object`.
+
+### Class
+To define a Class in `PHP` we use the `class` keyword followed by the name of the class. The `properties` and `methods` of the class are placed inside the braces.
+
+In a class, variables are called `properties` and functions are called `methods`.
+
+```php
+<?php
+  class Bar {
+    // Code is added here
+  }
+?>
+```
+
+```php
+<?php
+  class Fruit {
+    // Code is added here
+  }
+?>
+```
+
+The class can be extended to include `properties` and `methods`.
+
+Multiple `Objects` can be created from a `Class`.
+
+```php
+<?php
+  class Fruit {
+    // Properties
+    public $name;
+    public $color;
+
+    // Methods
+    function set_name($name) {
+      $this->name = name;
+    }
+
+    function get_name($name) {
+      return $this-name;
+    }
+  }
+?>
+```
+
+Outside of the `Class` declaration, we can then create `Objects` as instances of the class. We use the `new` keyword to create instances. Each `Object` shares the properties and methods of the class.
+
+```php
+<?php
+  class Fruit {
+    // Properties
+    public $name;
+    public $color;
+
+    // Methods
+    function set_name($name) {
+      $this->name = name;
+    }
+
+    function get_name($name) {
+      return $this-name;
+    }
+  }
+
+  // Create two new Objects as instances of the Fruit Class
+  $apple = new Fruit();
+  $banana = new Fruit();
+
+  // Call the method within the Class
+  $apple->set_name("Apple");
+  $banana->set_name("Banana");
+
+  // Call the method within the Class to output the name of each Fruit
+  echo $apple->get_name();
+  echo $banana->get_name();
 ?>
 ```
