@@ -99,17 +99,20 @@ A connection to a database, such as `MySQL`, can be made using `PDO (PHP Data Ob
 
 ```php
 <?php
+  // Database connection variables
   $hostname = "localhost";
   $username = "username";
   $password = "password";
   $database = "databaseName";
   
   try {
+    // Create a PDO instance with MySQL DSN (Data Source Name)
     $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-    // Set the PDO error mode to exception
+    // Set the PDO error mode to exception for better error handling
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected to the database.";
   } catch(PDOException $e) {
+    // Display the exact error during development, better to remove this and log this in production
     echo "Connection failed: " . $e->getMessage();
   }
 ?>
