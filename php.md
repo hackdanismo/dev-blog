@@ -5,6 +5,7 @@
 + [Comments](#comments)
 + [Superglobal](#superglobal)
 + [Functions](#functions)
+  + [Arguments](#arguments)
 
 ## Hello World
 A simple `PHP` script may look like the following example (below). This is written in a file named `hello.php` and will print `Hello World` onto a webpage. The closing `?>` at the end of the script is optional if the code only contains `PHP` code.
@@ -58,5 +59,36 @@ In `PHP`, a `superglobal` is a special reserved PHP `variable`. An example of th
 
   // Call the function to execute the code
   foo();
+?>
+```
+
+### Arguments
+
+Data can be passed into functions using `arguments`. 
+
+ ```php
+<?php
+  function foo($argument)
+  {
+    echo "This is a function. The argument is: $argument";
+  }
+
+  // Call the function to execute the code
+  foo("Hello World");
+?>
+```
+
+An `argument` can also have a `default value`.
+
+ ```php
+<?php
+  function foo($argument = "Hello World")
+  {
+    echo "This is a function. The argument is: $argument";
+  }
+
+  // Call the function to execute the code
+  foo();          // This will return: This is a function. The argument is: Hello World
+  foo("Hello");   // This will return: This is a function. The argument is: Hello
 ?>
 ```
