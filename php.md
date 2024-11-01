@@ -6,6 +6,7 @@
 + [Superglobal](#superglobal)
 + [Functions](#functions)
   + [Arguments](#arguments)
++ [Database Connection](#database-connection)
 
 ## Hello World
 A simple `PHP` script may look like the following example (below). This is written in a file named `hello.php` and will print `Hello World` onto a webpage. The closing `?>` at the end of the script is optional if the code only contains `PHP` code.
@@ -90,5 +91,26 @@ An `argument` can also have a `default value`.
   // Call the function to execute the code
   foo();          // This will return: This is a function. The argument is: Hello World
   foo("Hello");   // This will return: This is a function. The argument is: Hello
+?>
+```
+
+## Database Connection
+A connection to a database, such as `MySQL`, can be made using `PDO (PHP Data Objects)`. `PDO` requires a valid database to connect to or an exception will be thrown. 
+
+```php
+<?php
+  $hostname = "localhost";
+  $username = "username";
+  $password = "password";
+  $database = "databaseName";
+  
+  try {
+    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    // Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected to the database.";
+  } catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+  }
 ?>
 ```
