@@ -4,6 +4,7 @@
 + [Hello World](#hello-world)
 + [Comments](#comments)
 + [Superglobal](#superglobal)
++ [Functions](#functions)
 
 ## Hello World
 A simple `PHP` script may look like the following example (below). This is written in a file named `hello.php` and will print `Hello World` onto a webpage. The closing `?>` at the end of the script is optional if the code only contains `PHP` code.
@@ -40,5 +41,22 @@ In `PHP`, a `superglobal` is a special reserved PHP `variable`. An example of th
   if (str_contains($_SERVER["HTTP_USER_AGENT"], "Firefox")) {
     echo "You are using Firefox.";
   }
+?>
+```
+
+## Functions
++ A `function` is a block of statements that can be used repeatedly in a program.
++ A `function` will not execute automatically when a page loads.
++ The `function` will be executed by a call to the `function`.
+
+ ```php
+<?php
+  function foo()
+  {
+    echo "This is a function.";
+  }
+
+  // Call the function to execute the code
+  foo();
 ?>
 ```
